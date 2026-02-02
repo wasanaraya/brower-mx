@@ -19,16 +19,11 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Install Gradle
-        run: |
-          GRADLE_VERSION=8.2.2
-          curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip
-          unzip -q gradle.zip
-          echo "$PWD/gradle-${GRADLE_VERSION}/bin" >> $GITHUB_PATH
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Build Debug APK
-        run: |
-          gradle :app:assembleDebug
+        run: gradle :app:assembleDebug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
