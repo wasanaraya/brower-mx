@@ -1,6 +1,0 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
