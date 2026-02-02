@@ -1,0 +1,2 @@
+rootProject.name='MyMXBrowser'
+include ':app'

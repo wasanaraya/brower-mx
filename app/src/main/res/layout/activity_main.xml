@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- One bar: buttons + URL (Soul-like) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="◀" />
+
+            <Button
+                android:id="@+id/btnForward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▶"
+                android:layout_marginStart="6dp" />
+
+            <Button
+                android:id="@+id/btnReload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⟳"
+                android:layout_marginStart="6dp" />
+
+            <Button
+                android:id="@+id/btnHomeBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏠"
+                android:layout_marginStart="6dp" />
+
+            <EditText
+                android:id="@+id/etUrl"
+                android:layout_width="520dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="ใส่ลิงก์หรือค้นหา"
+                android:singleLine="true"
+                android:imeOptions="actionGo"
+                android:inputType="textUri" />
+
+            <Button
+                android:id="@+id/btnGo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GO"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/btnPaste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PASTE"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/btnQuality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎚"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/btnOpenMx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MX"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>
