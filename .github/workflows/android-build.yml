@@ -1,4 +1,4 @@
-name: Android Build APK
+name: Android Build APK (no wrapper)
 
 on:
   push:
@@ -18,13 +18,17 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
-          cache: gradle
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+      - name: Install Gradle
+        run: |
+          GRADLE_VERSION=8.2.2
+          curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip
+          unzip -q gradle.zip
+          echo "$PWD/gradle-${GRADLE_VERSION}/bin" >> $GITHUB_PATH
 
       - name: Build Debug APK
-        run: ./gradlew :app:assembleDebug
+        run: |
+          gradle :app:assembleDebug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
